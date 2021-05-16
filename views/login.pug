@@ -1,0 +1,33 @@
+doctype html 
+- var select= tf
+html 
+    head 
+    title= title 
+    if !select
+        script 
+            include ../Public/index.js
+body(onload = "load()")
+    h1(align = "center")= heading
+    h2(align = "center" id="counter")
+    if select
+        - var detail= value
+        div 
+            each val in detail   
+                table(border = "1" cellpadding="20px" cellspacing="0px" style = "margin: 20px auto;table-layout: fixed;width:80% ") 
+                    h3(align = "center" style = "text-decoration:underline") User-Details
+                    tr 
+                        td Name 
+                        td
+                            li(style = "list-style-type: none;")= val.name
+                    tr  
+                        td Mobile_Number 
+                        td 
+                            li(style = "list-style-type: none;")= val.phone 
+                    tr 
+                        td E-Mail Address 
+                        td  
+                            li(style = "list-style-type: none;")= val.email 
+                    tr 
+                        td Address  
+                        td 
+                            li(style = "list-style-type: none;")= val.address        

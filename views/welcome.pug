@@ -1,0 +1,13 @@
+extends base.pug 
+
+block content
+    div.container
+        div(class = "buttons sign")
+            form(action = "/create_user" class = "form") 
+                h3 New Users
+                button(class = "btn one") Sign Up
+        div(class = "buttons log" )
+            form(action = "/home" method = "get" class = "form")    
+                h3 Existing Users
+                button(class = "btn two") Log In
+        

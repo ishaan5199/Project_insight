@@ -1,0 +1,18 @@
+function OPT(op){
+    // alert("helloji")
+    // alert(op);
+    var x = document.getElementsByClassName("fields")[op].selectedIndex;
+    if(x==0){document.getElementsByClassName("inp selectedF")[op].setAttribute("placeholder",`${document.getElementsByTagName("option")[x].value}`);}
+    else{document.getElementsByClassName("inp selectedF")[op].setAttribute("placeholder",`Enter ${document.getElementsByTagName("option")[x].value}`);}
+    document.getElementsByClassName("inp selectedF")[op].setAttribute("name",document.getElementsByTagName("option")[x].value);
+}
+function load(){
+    var timer=3;
+    setTimeout(()=>{
+        window.location.href="/home";
+    },4000);
+    setInterval(()=>{
+        document.getElementById("counter").innerHTML=`Redirecting to previous page in ${timer--}`
+    },1000)
+}
+

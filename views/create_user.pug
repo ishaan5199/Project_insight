@@ -1,0 +1,13 @@
+extends base.pug
+
+block content 
+    div.container
+        div(class = "flex-items")
+                label.intro Create User Account
+                form(action="/login" method = "post" class="inForm")
+                    input(type="text" class="inp" name="name" placeholder="Enter Your Name") 
+                    input(type="phone" class="inp" name="phone" placeholder="Enter Your Mobile Number")
+                    input(type="email" class="inp" name="email" placeholder="Enter Your E-Mail Address")
+                    input(type="text" class="inp" name="address" placeholder="Enter Your Address")
+                    button(class = "btn" style = "padding:10px") 
+                        | Submit

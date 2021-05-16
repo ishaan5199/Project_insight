@@ -1,0 +1,47 @@
+doctype html 
+html 
+    head 
+        title CRUD 
+        style 
+            include ../Public/styles.css
+        script 
+            include ../Public/index.js 
+    body 
+        h1 Public Database 
+        div.flex-container      
+            div(class = "flex-items two")
+                label.intro Read
+                form(action="/login" method = "get" class="inForm")
+                    select(class = "fields" onclick="OPT(0)")
+                        option(value = "Select one field" selected) Select one field
+                        option(value="name") Name
+                        option(value="phone") Phone
+                        option(value="email") E-Mail
+                        option(value="address") Address
+                    input(type="text" class="inp selectedF" name="name" placeholder="Input Area")  
+                    button(class = "btn") 
+                        | Search
+            div(class = "flex-items three")
+                label.intro Update
+                form(action="/login" method = "put" class="inForm")
+                    select(class = "fields" onclick="OPT(1)")
+                        option(value = "Select one field" selected) Select one field
+                        option(value="name") Name
+                        option(value="phone") Phone
+                        option(value="email") E-Mail
+                        option(value="address") Address
+                    input(type="text" class="inp selectedF" name="name" placeholder="Input Area")  
+                    button(class = "btn") 
+                        | Update     
+            div(class = "flex-items four")
+                label.intro Delete Your Account
+                form(action="/login" method = "delete" class="inForm")
+                    button(class = "btn" ) 
+                        | Delete
+            
+
+
+
+
+
+
