@@ -1,7 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-html,body{
-    height:100%;
-}
 
 body{
     box-sizing: border-box;
@@ -18,59 +15,61 @@ h1{
 
 
 .flex-container{
-    height: 70%;
+    margin: 15vh auto;
+    height: 50vh;
+    width: 70vw;
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     background: rgba(255, 255, 255, 0.05);
     -webkit-backdrop-filter: blur(10px);
     -ms-backdrop-filter: blur(10px);
     backdrop-filter: blur(5px);
-    margin: 10%;
     border: 10px solid rgb(189, 182, 182);
     border-radius: 20px;
 }
 
 .flex-items{
-    margin: 20px 20px;
-    background: rgba(255, 255, 255, 0.5);
+    margin: 15px 15px;
+    background: rgba(255, 255, 255, 0.3);
     -webkit-backdrop-filter: blur(10px);
     -ms-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    height: 35%;
-    width: 80%;
+    min-height: 30vh;
+    min-width: 15vw;
     border: 5px solid rgb(92, 80, 80);
     border-radius: 20px;
     text-align: center;
-    padding: 30px;
+    padding: 35px;
 }
 
 
 .inForm{
     display: block;
-    margin:50px auto;
+    margin:20px auto;
 }
 
 .four .inForm{
-    margin:100px auto;
+    margin:70px auto;
 }
 
 .intro{
-    margin: 40px;
+    margin-top: 20px;
     font: bold 25px 'Roboto', sans-serif;
     text-decoration: underline;
 }
 
 .fields{
     outline: none;
+    appearance: none;
     text-align: center;
     display: block;
+    min-width: 12vw;
     margin: 10px auto;
-    padding: 0px;
-    font: 25px 'Roboto', sans-serif;
-    border: 2px solid rgb(53, 49, 49);
-    border-radius: 20px;
+    padding: 5px;
+    font: 20px 'Roboto', sans-serif;
+    border: 3px solid rgb(53, 49, 49);
+    border-radius: 35px;
     background: rgb(98, 185, 95);
     
 }
@@ -80,32 +79,37 @@ h1{
     text-align: center;
     display: block;
     margin: 10px auto;
-    padding: 5px;
-    font: bold 25px 'Roboto', sans-serif;
-    border: 2px solid rgb(141, 126, 126);
-    border-radius: 20px;
+    min-width: 12vw;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font: bold 15px 'Roboto', sans-serif;
+    border: 3px solid rgb(141, 126, 126);
+    border-radius: 35px;
     background: rgba(255, 255, 255, 0.5);
 }
 
 .btn{
-    user-select: none;
     outline: none;
-    width: 47%;
+    user-select: none;
+    min-width: 12vw;
     font: bold 20px 'Roboto', sans-serif;
-    border: 2px solid rgb(53, 49, 49);
-    border-radius: 20px;
-    margin: 5px;
-    background-color: rgb(71, 110, 240);
-    transition: 0.3s;
+    padding: 5px;
+    border: 3px solid rgb(68, 63, 63);
+    border-radius: 35px;
+    background: rgba(14, 87, 223, 0.6);
+    -webkit-backdrop-filter: blur(10px);
+    -ms-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    color:blanchedalmond;
+    transition: 0.5s;
 }
 
 .btn:hover{
-    color:azure;
-    background-color: rgb(3, 31, 189);
+    text-decoration: underline;
+    letter-spacing: 5px;
 }
 
-.ribbon{
-    margin:auto;
+@media only screen and (min-width:700px){
+    
 }
-
 
