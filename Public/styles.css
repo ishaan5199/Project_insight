@@ -1,18 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-
+*{
+    margin: 0;
+    padding: 0;
+}
 body{
     box-sizing: border-box;
     background: url(../Public/img/img-4.jpg) no-repeat center fixed;
     background-size: cover;
 }
 
-h1{
-    text-align: center;
-    text-decoration: underline;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 50px;
+.bar{
+    height: 12vh;
+    background-color: antiquewhite;
 }
 
+.head{
+    float: left;
+    padding-left: 25px;
+    margin-top: 20px; 
+    text-decoration: underline;
+    font:bold 45px 'Courier New', Courier, monospace;
+}
+
+.msg{
+    float: right;
+    padding-right: 25px;
+    margin-top: 4vh; 
+    font-family: 'Courier New', Courier, monospace;
+    font-size:25px;
+}
 
 .flex-container{
     margin: 15vh auto;

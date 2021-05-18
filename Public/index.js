@@ -6,7 +6,8 @@ function OPT(op){
     else{document.getElementsByClassName("inp selectedF")[op].setAttribute("placeholder",`Enter ${document.getElementsByTagName("option")[x].value}`);}
     document.getElementsByClassName("inp selectedF")[op].setAttribute("name",document.getElementsByTagName("option")[x].value);
 }
-function load(){
+
+function load(){            // User creation
     var timer=3;
     setTimeout(()=>{
         window.location.href="/home";
@@ -15,4 +16,7 @@ function load(){
         document.getElementById("counter").innerHTML=`Redirecting to previous page in ${timer--}`
     },1000)
 }
+
+
+
 

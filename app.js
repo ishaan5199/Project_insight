@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 dotenv.config({path:"./config.env"});
 const path = require("path");
 const mongoose = require("mongoose"); 
+const { start } = require("repl");
 
 const PORT = process.env.PORT || 8000;
 
@@ -23,9 +24,10 @@ db.once('open', function() {
 // Defining a Schema
 const people = mongoose.Schema({
     name:String,
-    phone:Number,
+    phone:String,
     email:String,
-    address:String
+    address:String,
+    pass:String
 });
 
 const Contact = mongoose.model("contact",people);
@@ -49,16 +51,34 @@ app.get("/create_user",(req,res)=>{
     res.status(200).render("create_user.pug");
 }); 
 
+app.get("/login",(req,res)=>{
+    res.status(200).render("login.pug");
+});
+
 app.get("/home",(req,res)=>{
     res.status(200).render("home.pug");
 });
+
+app.post("/verify",(req,res)=>{
+    Contact.findOne(req.body,(err, contacts)=>{
+        if(err){
+            return res.status(400).send("Login Failed!");
+        }
+        // console.log(contacts);
+        if(!contacts){
+            return res.status(200).render("login.pug",{message:"Invalid Login Credentials"});
+        }
+        res.status(200).render("home.pug",{greet:`Welcome ${contacts.name}`});
+    })
+});
+
 /* User Creation */
-app.post("/login",(req,res)=>{
+app.post("/create",(req,res)=>{
     // console.log(req.body);
     let Data = new Contact(req.body);
     Data.save().then(()=>{
         console.log(req.body);
-        res.status(200).render("login.pug",{tf:false,title:"User Creation",heading:"User Added Succesfully !!"})
+        res.status(200).render("home.pug",{greet:`Welcome ${Data.name}`});
     }).catch((e)=>{
         res.status(404).send(e.message);
     });
@@ -66,28 +86,45 @@ app.post("/login",(req,res)=>{
 });
 
 /* Info retrieval */
-app.get("/login",(req,res)=>{
+app.get("/search",(req,res)=>{
     let request = req.query;
     // console.log(request);
-    Contact.find(request,(err,contacts)=>{
+    let KEY = Object.keys(request)[0];
+    let Start = Object.values(request)[0];
+    // console.log(KEY);
+    // console.log(Start);
+    Contact.find({[KEY]: {$regex: '.*' + Start, $options: 'i'} }, function(err, contacts){           // imp
         let details = contacts;
         if(err){
+            // onsole.log(err);
             return res.status(400).send("Request Failed!");
         }
         if(details.length==0){
-            return res.status(200).render("login.pug",{tf:false,title:"Global Search",heading:"No match found :("});
+            return res.status(200).render("search_result.pug",{tf:false,title:"Global Search",heading:"No match found :("});
         }
         // console.log(details);
-        res.status(200).render("login.pug",{tf:true,title:"Global Search",heading:"Search Successful",value:details});
+        res.status(200).render("search_result.pug",{tf:true,title:"Global Search",heading:"Search Successful",value:details});
     })
 });
 
 /* Info Updation */
-app.put("/login",(req,res)=>{
-
+app.post("/up",(req,res)=>{
+    console.log(req.body);
+    
+    //Contact.updateOne({name:``})
 });
 
 /* User Deletion */
+app.delete("/del",(req,res)=>{
+
+});
+
+/* back to home page */
+app.post("/back",(req,res)=>{
+    res.status(200).render("home.pug");
+});
+
+/* PORT Listen */
 app.listen(PORT,()=>{
     console.log(`Server listening to port ${PORT}...`);
 });

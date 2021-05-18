@@ -4,10 +4,11 @@ block content
     div.container
         div(class = "buttons")
                 label.intro Create User Account
-                form(action="/login" method = "post" class="inForm")
-                    input(type="text" class="inp" name="name" placeholder="Enter Your Name") 
-                    input(type="phone" class="inp" name="phone" placeholder="Enter Your Mobile Number")
+                form(action="/create" method = "post" class="inForm")
+                    input(type="text" class="inp req" name="name" placeholder="Enter Your Name" required="required")
+                    input(type="phone" class="inp req" name="phone" placeholder="Enter Your Mobile Number" required="required")
+                    input(type="text" class="inp req" name="address" placeholder="Enter Your Address" required="required")
+                    input(type="password" class="inp req" name="pass" placeholder="Enter Your Password" required="required")
                     input(type="email" class="inp" name="email" placeholder="Enter Your E-Mail Address")
-                    input(type="text" class="inp" name="address" placeholder="Enter Your Address")
                     button(class = "btn" style = "padding:5px") 
                         | Submit

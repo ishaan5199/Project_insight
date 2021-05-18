@@ -17,8 +17,8 @@ h1{
     -webkit-backdrop-filter: blur(10px);
     -ms-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    margin: 15vh auto;
-    height: 50vh;
+    margin: 12vh auto;
+    height: 60vh;
     width: 70vw;
     display: flex;
     justify-content: center;
@@ -72,6 +72,10 @@ h3{
 .inForm{
     display: block;
     margin:20px 20px;
+}
+
+.req::after{
+    content:"*";
 }
 
 .inp{
