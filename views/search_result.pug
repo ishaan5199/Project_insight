@@ -11,9 +11,6 @@ body(onload = "load()")
     h2(align = "center" id="counter")
     if select
         - var detail= value
-        div(style = "text-align:left")     
-            form(action = "/back" method = "post")
-                button Back   
         div 
             each val in detail   
                 table(border = "1" cellpadding="20px" cellspacing="0px" style = "margin: 20px auto;table-layout: fixed;width:80% ") 

@@ -121,7 +121,7 @@ app.delete("/del",(req,res)=>{
 
 /* back to home page */
 app.post("/back",(req,res)=>{
-    res.status(200).render("home.pug");
+    res.status(200).render("home.pug",{});
 });
 
 /* PORT Listen */

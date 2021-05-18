@@ -17,6 +17,9 @@ function load(){            // User creation
     },1000)
 }
 
-
+function greet(){
+    var name = document.getElementsByClassName("msg")[0].innerHTML;
+    document.getElementsByClassName("msg")[0].innerHTML = name;
+}
 
 
