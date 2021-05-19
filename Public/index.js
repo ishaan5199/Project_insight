@@ -1,6 +1,4 @@
 function OPT(op){
-    // alert("helloji")
-    // alert(op);
     var x = document.getElementsByClassName("fields")[op].selectedIndex;
     if(x==0){document.getElementsByClassName("inp selectedF")[op].setAttribute("placeholder",`${document.getElementsByTagName("option")[x].value}`);}
     else{document.getElementsByClassName("inp selectedF")[op].setAttribute("placeholder",`Enter ${document.getElementsByTagName("option")[x].value}`);}
@@ -17,9 +15,22 @@ function load(){            // User creation
     },1000)
 }
 
-function greet(){
-    var name = document.getElementsByClassName("msg")[0].innerHTML;
-    document.getElementsByClassName("msg")[0].innerHTML = name;
-}
-
-
+// For icon change (Create User and Login Page)
+if(window.location.pathname==="/create_user" || window.location.pathname==="/login"){
+    window.onload = ()=>{
+        var icon = document.getElementById("icon");
+        /* console.log(icon);
+        console.log(icon.className); */
+        icon.addEventListener("click",(e)=>{
+                if(icon.className==="fa fa-eye-slash"){
+                    document.getElementById("sec").setAttribute("type","text");
+                    icon.className="fa fa-eye";
+                    // console.log(icon.className);
+                }
+                else{
+                    document.getElementById("sec").setAttribute("type","password");
+                    icon.className="fa fa-eye-slash";
+                }
+        })
+    }
+} 

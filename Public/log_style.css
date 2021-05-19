@@ -81,8 +81,8 @@ h3{
 .inp{
     outline: none;
     text-align: center;
-    display: block;
-    margin: 10px auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
     width: 50vh;
     padding: 5px;
     font: bold 25px 'Roboto', sans-serif;
@@ -91,4 +91,14 @@ h3{
     background: rgba(255, 255, 255, 0.5);
 }
 
+label{
+    position: relative;
+}
 
+#icon{
+    right: 15px;
+    top: -5px;
+    position: absolute;
+    cursor: pointer;
+    font-size: 20px;
+}

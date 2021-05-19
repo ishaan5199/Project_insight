@@ -40,7 +40,7 @@ app.use(express.urlencoded({extended:false}));
 app.set("view engine","pug");
 app.set("views",path.join(__dirname,"views"));
 
-// Endpoints
+// ENDPOINTS
 
 /* Home Page */
 app.get("/",(req,res)=>{
@@ -59,7 +59,7 @@ app.get("/home",(req,res)=>{
     res.status(200).render("home.pug");
 });
 
-app.post("/verify",(req,res)=>{
+app.post("/welcome",(req,res)=>{
     Contact.findOne(req.body,(err, contacts)=>{
         if(err){
             return res.status(400).send("Login Failed!");
@@ -73,7 +73,7 @@ app.post("/verify",(req,res)=>{
 });
 
 /* User Creation */
-app.post("/create",(req,res)=>{
+app.post("/new_user",(req,res)=>{
     // console.log(req.body);
     let Data = new Contact(req.body);
     Data.save().then(()=>{
@@ -117,11 +117,6 @@ app.post("/up",(req,res)=>{
 /* User Deletion */
 app.delete("/del",(req,res)=>{
 
-});
-
-/* back to home page */
-app.post("/back",(req,res)=>{
-    res.status(200).render("home.pug",{});
 });
 
 /* PORT Listen */

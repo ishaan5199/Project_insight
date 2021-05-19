@@ -1,15 +1,20 @@
 extends base.pug
-
+    
 block content 
     div.container
         div(class = "buttons")
                 label.intro Enter Credentials
-                form(action="/verify" method = "post" class="inForm")
+                form(action="/welcome" method = "post" class="inForm")
                     input(type="text" class="inp req" name="name" placeholder="Enter Your Name" required="required")
-                    input(type="password" class="inp req" name="pass" placeholder="Enter Your Password" required="required")
+                    br
+                    label
+                        input(type="password" class="inp req" id = "sec" name="pass" placeholder="Enter Your Password" required="required")
+                        <i id="icon" class="fa fa-eye-slash""></i>
+                    br
                     button(class = "btn" style = "padding:5px") 
                         | Submit
                     br
                     br                        
                     label(style = "display:block; font: bolder 20px Roboto; letter-spacing:5px; color:white")= message                          
                                       
+        

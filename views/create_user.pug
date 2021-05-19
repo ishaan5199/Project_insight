@@ -4,11 +4,18 @@ block content
     div.container
         div(class = "buttons")
                 label.intro Create User Account
-                form(action="/create" method = "post" class="inForm")
+                form(action="/new_user" method = "post" class="inForm")
                     input(type="text" class="inp req" name="name" placeholder="Enter Your Name" required="required")
+                    br
                     input(type="phone" class="inp req" name="phone" placeholder="Enter Your Mobile Number" required="required")
+                    br
                     input(type="text" class="inp req" name="address" placeholder="Enter Your Address" required="required")
-                    input(type="password" class="inp req" name="pass" placeholder="Enter Your Password" required="required")
+                    br
+                    label
+                        input(type="password" class="inp req" id = "sec" name="pass" placeholder="Enter Your Password" required="required")
+                        <i id="icon" class="fa fa-eye-slash""></i>
+                    br
                     input(type="email" class="inp" name="email" placeholder="Enter Your E-Mail Address")
+                    br
                     button(class = "btn" style = "padding:5px") 
-                        | Submit
+                        | Submit                     
