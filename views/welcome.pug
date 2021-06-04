@@ -2,12 +2,14 @@ extends base.pug
 
 block content
     div.container
-        div(class = "buttons sign")
-            form(action = "/create_user" class = "form") 
+        div(class = "button_log")
+            form(action = "/create_user" method = "get" class = "form") 
                 h3 For New Users
-                button(class = "btn one") Sign Up
-        div(class = "buttons log" )
+                div.casing
+                    button(class = "btn") Sign Up
+        div(class = "button_log")
             form(action = "/login" method = "get" class = "form")    
                 h3 For Existing Users
-                button(class = "btn two") Log In
+                div.casing
+                    button(class = "btn") Log In
         

@@ -55,10 +55,11 @@ app.get("/login",(req,res)=>{
     res.status(200).render("login.pug");
 });
 
-app.get("/home",(req,res)=>{
+app.get("/home",(req,res)=>{                        //check this
     res.status(200).render("home.pug");
 });
 
+/* Logging in */
 app.post("/welcome",(req,res)=>{
     Contact.findOne(req.body,(err, contacts)=>{
         if(err){
@@ -71,6 +72,12 @@ app.post("/welcome",(req,res)=>{
         res.status(200).render("home.pug",{greet:`Welcome ${contacts.name}`});
     })
 });
+
+
+
+/* CRUD ops */
+
+
 
 /* User Creation */
 app.post("/new_user",(req,res)=>{
@@ -108,15 +115,15 @@ app.get("/search",(req,res)=>{
 });
 
 /* Info Updation */
-app.post("/up",(req,res)=>{
+app.post("/update",(req,res)=>{
     console.log(req.body);
-    
+    res.status(200).send("Under Construction !!");
     //Contact.updateOne({name:``})
 });
 
 /* User Deletion */
-app.delete("/del",(req,res)=>{
-
+app.get("/delete",(req,res)=>{
+    res.status(200).send("Under Construction !!");
 });
 
 /* PORT Listen */
