@@ -115,8 +115,8 @@ body{
     background-color: rgb(33, 34, 36);
     height: auto; /* required to allow content to expand vertically without overflow */
     width: auto;
-    min-height: 80%; 
-    min-height: 80vh;
+    min-height: 100%; 
+    min-height: 100vh;
     margin: 0;
     padding: 0;
 }
