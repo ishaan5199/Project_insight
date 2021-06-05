@@ -114,7 +114,7 @@ body{
     font-family: Roboto;
     background-color: rgb(33, 34, 36);
     height: auto; /* required to allow content to expand vertically without overflow */
-    width: auto;
+    width: auto; 
     min-height: 100%; 
     min-height: 100vh;
     margin: 0;
@@ -123,13 +123,14 @@ body{
 .header{
     width:90%;
     margin: auto;
-    margin-top:-10px;
+    /* margin-top:-10px; */
     box-shadow:-3px -3px 65px #2e243d70 inset,3px 3px 65px #00000070 inset;
     border-radius: 20px;
 }
 .footer{
     width:100%;
     position: absolute;
+    margin: 0;
     bottom: 20px;
     text-align: center;
     color:bisque;
