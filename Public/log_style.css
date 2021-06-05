@@ -110,12 +110,13 @@ html{
     height: 100vh;
 }
 body{
+    overflow: hidden;
     font-family: Roboto;
     background-color: rgb(33, 34, 36);
     height: auto; /* required to allow content to expand vertically without overflow */
     width: auto;
-    min-height: 95%; 
-    min-height: 90vh;
+    min-height: 80%; 
+    min-height: 80vh;
     margin: 0;
     padding: 0;
 }
@@ -128,10 +129,8 @@ body{
 }
 .footer{
     width:100%;
-    position:absolute;
-    left:0;
+    position: absolute;
     bottom: 20px;
-    margin-bottom: 0;
     text-align: center;
     color:bisque;
 }
