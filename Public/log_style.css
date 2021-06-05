@@ -115,7 +115,7 @@ body{
     height: auto; /* required to allow content to expand vertically without overflow */
     width: auto;
     min-height: 95%; 
-    min-height: 95vh;
+    min-height: 90vh;
     margin: 0;
     padding: 0;
 }
