@@ -8,13 +8,13 @@ html
             include ../Public/index.js 
         meta(name="viewport" content="width=device-width, initial-scale=1.0")            
     body 
-        div.bar
-            label.head Public Database
-            label.msg= greet 
-        div.flex-container      
-            div(class = "flex-items two")
+        header
+            div.head Public Database
+            div.msg= greet 
+        div.container      
+            div(class = "flex-items one")
                 label.intro Read
-                form(action="/search" method = "get" class="inForm" target="_blank")
+                form(action="/search" method = "get" class="loginForm" target="_blank")
                     select(class = "fields" onclick="OPT(0)")
                         option(value = "Select one field" selected) Select one field
                         option(value="name") Name
@@ -24,9 +24,9 @@ html
                     input(type="text" class="inp selectedF" name="select" placeholder="Input Area")  
                     button(class = "btn") 
                         | Search
-            div(class = "flex-items three")
+            div(class = "flex-items two")
                 label.intro Update
-                form(action="/update" method = "post" class="inForm")
+                form(action="/update" method = "post" class="loginForm")
                     select(class = "fields" onclick="OPT(1)")
                         option(value = "Select one field" selected) Select one field
                         option(value="name") Name
@@ -36,11 +36,14 @@ html
                     input(type="text" class="inp selectedF" name="select" placeholder="Input Area")  
                     button(class = "btn") 
                         | Update     
-            div(class = "flex-items four")
+            div(class = "flex-items three")
                 label.intro Delete Your Account
-                form(action="/delete" method = "get" class="inForm")
+                form(action="/delete" method = "get" class="loginForm")
                     button(class = "btn" ) 
                         | Delete
+        footer
+            h3 The Database Company&reg;
+                                    
             
 
 

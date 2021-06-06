@@ -3,15 +3,15 @@ extends base.pug
 block content 
     div.container
         div(class = "buttons")
-                label.intro Enter Credentials
-                form(action="/welcome" method = "post" class="inForm")
-                    input(type="text" class="inp req" name="name" placeholder="Enter Your Name" required="required")
+                div.intro Enter Credentials
+                form(action="/welcome" method = "post" class="loginForm")
+                    input(type="text" class="inp" name="name" placeholder="Enter Your Name" required="required")
                     br
-                    label
-                        input(type="password" class="inp req" id = "sec" name="pass" placeholder="Enter Your Password" required="required")
+                    label.pass
+                        input(type="password" class="inp" id = "sec" name="pass" placeholder="Enter Your Password" required="required")
                         <i id="icon" class="fa fa-eye-slash"></i>
                     br
-                    button(class = "btn" style = "padding:5px") 
+                    button(class = "btn user" style = "padding:5px") 
                         | Submit
                     br
                     br                        

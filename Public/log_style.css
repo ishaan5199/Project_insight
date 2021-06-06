@@ -1,143 +1,47 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-
-body{
-    background: url(../Public/img/img-2.jpg) no-repeat center fixed;
-    background-size: cover;
-}
-
-h1{
-    text-align: center;
-    text-decoration: underline;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 50px;
-}
-
-.container{
-    background: rgba(255, 255, 255, 0.05);
-    -webkit-backdrop-filter: blur(10px);
-    -ms-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    margin: 12vh auto;
-    height: 60vh;
-    width: 70vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border: 5px solid rgb(104, 99, 99);
-    border-radius: 30px;
-}
-
-.form{
-    margin: 70px;
-}
-
-h3{
-    color:rgb(56, 29, 29);
-    font: bold 40px 'Roboto', sans-serif;
-    text-decoration: underline;
-}
-
-.buttons{
-    margin-top: 10px;
-}
-.btn{
-    outline: none;
-    user-select: none;
-    min-width: 15vw;
-    font: bold 20px 'Roboto', sans-serif;
-    padding: 15px;
-    border: 5px solid rgb(143, 132, 132);
-    border-radius: 35px;
-    background: rgba(255, 255, 255, 0.3);
-    -webkit-backdrop-filter: blur(10px);
-    -ms-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    color:blanchedalmond;
-    transition: 0.5s;
-}
-
-.btn:hover{
-    min-width: 25vw;
-    text-decoration: underline;
-    letter-spacing: 5px;
-}
-
-.intro{
-    padding-top: 30px;
-    font: bold 25px 'Roboto', sans-serif;
-    text-decoration: underline;
-}
-
-.inForm{
-    display: block;
-    margin:20px 20px;
-}
-
-.req::after{
-    content:"*";
-}
-
-.inp{
-    outline: none;
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width: 50vh;
-    padding: 5px;
-    font: bold 25px 'Roboto', sans-serif;
-    border: 2px solid rgb(53, 49, 49);
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.5);
-}
-
-label{
-    position: relative;
-}
-
-#icon{
-    right: 15px;
-    top: -5px;
-    position: absolute;
-    cursor: pointer;
-    font-size: 20px;
-} */
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
+/* Base Page */
+*{
+    box-sizing: border-box;
+}
 html{
     height: 100%; /* fallback for IE and older browsers */
     height: 100vh;
 }
 body{
-    overflow: hidden;
+    display:flex; 
+    flex-direction:column; 
+    justify-content: space-between;
     font-family: Roboto;
     background-color: rgb(33, 34, 36);
     height: auto; /* required to allow content to expand vertically without overflow */
     width: auto; 
-    min-height: 100%; 
-    min-height: 100vh;
+    height: 100%; 
+    height: 100vh;
     margin: 0;
     padding: 0;
 }
-.header{
+header{
+    display: flex;
+    flex-direction: column;
     width:90%;
     margin: auto;
-    /* margin-top:-10px; */
+    margin-top: 20px;
+    margin-bottom: 0;
     box-shadow:-3px -3px 65px #2e243d70 inset,3px 3px 65px #00000070 inset;
     border-radius: 20px;
 }
-.footer{
+footer{
     width:100%;
-    position: absolute;
-    margin: 0;
-    bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     text-align: center;
     color:bisque;
+    background-color: rgb(41, 41, 43);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
 }
-
-
-h1{
+.head{
     padding:20px;
     font: small-caps bolder 30px Roboto;
     color:aliceblue;
@@ -146,15 +50,15 @@ h1{
     text-decoration: underline;
 }
 
-
+/* Welcome Page */
 .container{
     text-align: center;
-    margin-top: 90px;
     display:flex;
-    flex-direction: wrap;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 .button_log{
     padding: 3%;
@@ -168,8 +72,8 @@ form h3{
 }
 .btn{
     outline: none;
-    
-    width: 40vw;
+    cursor: pointer;
+    width: 50vw;
     user-select: none;
     padding:10px;
 
@@ -178,11 +82,49 @@ form h3{
     border: 3px solid rgb(75, 67, 67);
     border-radius: 10px;
     transition: 0.4s;
-    background-color: rgb(163, 151, 151);
-    letter-spacing: 2px;
+    background-color: rgb(71, 57, 57);
+    letter-spacing: 4px;
 }
 .btn:hover{
     color:white;
-    letter-spacing: 6px;
+    letter-spacing: 8px;
     background-color: rgb(31, 31, 146);
+}
+
+/* Create User/Login Page */
+.intro{
+    margin-top: 20px;
+    color: bisque;
+    font: bold 25px Roboto;
+}
+form.loginForm{
+    padding: 30px;
+}
+.inp{
+    background-color: rgb(43, 37, 37);
+    color: bisque;
+    outline: none;
+    text-align: center;
+    margin: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 50vw;
+
+    border: 3px solid rgb(75, 67, 67);
+    border-radius: 10px;
+}
+
+.pass{
+    position: relative;
+}
+#icon{
+    right: 18px;
+    top: 0px;
+    position: absolute;
+    cursor: pointer;
+    font-size: 20px;
+}
+.user{
+    margin-top: 10px;
+    width: 50vw;
 }

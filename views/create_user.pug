@@ -3,7 +3,7 @@ extends base.pug
 block content 
     div.container
         div(class = "buttons")
-                label.intro Create User Account
+                div.intro Create User Account
                 form(action="/new_user" method = "post" class="loginForm")
                     input(type="text" class="inp" name="name" placeholder="Enter Your Name" required="required")
                     br
@@ -11,11 +11,11 @@ block content
                     br
                     input(type="text" class="inp" name="address" placeholder="Enter Your Address" required="required")
                     br
-                    label
+                    label.pass
                         input(type="password" class="inp" id = "sec" name="pass" placeholder="Enter Your Password" required="required")
                         <i id="icon" class="fa fa-eye-slash""></i>
                     br
                     input(type="email" class="inp" name="email" placeholder="Enter Your E-Mail Address")
                     br
-                    button(class = "btn" style = "padding:5px") 
+                    button(class = "btn user" style = "padding:5px") 
                         | Submit                     

@@ -1,132 +1,172 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-*{
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+ *{
+    box-sizing: border-box;
+}
+html{
+    height: 100%; /* fallback for IE and older browsers */
+    height: 100vh;
+}
+body{
+    display:flex;           /* woaahhhhhhhhhh */
+    flex-direction:column;
+    justify-content: space-between;
+
+    font-family: Roboto;
+    background-color: rgb(33, 34, 36);
+    height: auto; /* required to allow content to expand vertically without overflow */
+    width: auto; 
+    min-height: 100%; 
+    min-height: 100vh;
     margin: 0;
     padding: 0;
 }
-body{
-    box-sizing: border-box;
-    background: url(../Public/img/img-4.jpg) no-repeat center fixed;
-    background-size: cover;
-}
-
-.bar{
-    height: 12vh;
-    background-color: antiquewhite;
-}
-
-.head{
-    float: left;
-    padding-left: 25px;
-    margin-top: 20px; 
-    text-decoration: underline;
-    font:bold 45px 'Courier New', Courier, monospace;
-}
-
-.msg{
-    float: right;
-    padding-right: 25px;
-    margin-top: 4vh; 
-    font-family: 'Courier New', Courier, monospace;
-    font-size:25px;
-}
-
-.flex-container{
-    margin: 15vh auto;
-    height: 50vh;
-    width: 70vw;
+header{
     display: flex;
+    flex-direction: column;
+    width:90%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 0;
+    box-shadow:-3px -3px 65px #2e243d70 inset,3px 3px 65px #00000070 inset;
+    border-radius: 20px;
+}
+footer{
+    width:100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    color:bisque;
+    background-color: rgb(41, 41, 43);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+.head{
+    padding:20px;
+    font: small-caps bolder 30px Roboto;
+    color:aliceblue;
+    
+    text-align: center;
+    text-decoration: underline;
+}
+.msg{
+    padding-top:20px;
+    padding-bottom:20px;
+    font: 20px Roboto;
+    color: bisque;
+    
+    text-align: center;
+}
+
+
+
+.container{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.flex-items{
+    text-align: center;
+    width: 70%;
+    margin: 20px;
+    padding: 10px;
+    box-shadow: 2px 2px 2.5px bisque;
+    border-radius: 20px;
+    padding: 30px;
+    min-height: 300px;
+}
+.loginForm{
+    min-height: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display:flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    -webkit-backdrop-filter: blur(10px);
-    -ms-backdrop-filter: blur(10px);
-    backdrop-filter: blur(5px);
-    border: 10px solid rgb(189, 182, 182);
-    border-radius: 20px;
 }
-
-.flex-items{
-    margin: 15px 15px;
-    background: rgba(255, 255, 255, 0.3);
-    -webkit-backdrop-filter: blur(10px);
-    -ms-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    min-height: 30vh;
-    min-width: 15vw;
-    border: 5px solid rgb(92, 80, 80);
-    border-radius: 20px;
-    text-align: center;
-    padding: 35px;
-}
-
-
-.inForm{
-    display: block;
-    margin:20px auto;
-}
-
-.four .inForm{
-    margin:70px auto;
-}
-
 .intro{
-    margin-top: 20px;
-    font: bold 25px 'Roboto', sans-serif;
+    color: bisque;
+    font: bold 25px Roboto;
     text-decoration: underline;
 }
+.inp{
+    background-color: rgb(43, 37, 37);
+    color: bisque;
+    outline: none;
+    text-align: center;
+    margin: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 50vw;
 
+    border: 3px solid rgb(75, 67, 67);
+    border-radius: 10px;
+}
+.btn{
+    outline: none;
+    cursor: pointer;
+    width: 50vw;
+    user-select: none;
+    padding:10px;
+
+    color:azure;
+    font-size: 15px;
+    border: 3px solid rgb(75, 67, 67);
+    border-radius: 10px;
+    transition: 0.4s;
+    background-color: rgb(71, 57, 57);
+    letter-spacing: 4px;
+}
+.btn:hover{
+    color:white;
+    letter-spacing: 8px;
+    background-color: rgb(31, 31, 146);
+}
 .fields{
     outline: none;
     appearance: none;
+    cursor: pointer;
     text-align: center;
-    display: block;
-    min-width: 12vw;
-    margin: 10px auto;
+    width: 50vw;
     padding: 5px;
     font: 20px 'Roboto', sans-serif;
-    border: 3px solid rgb(53, 49, 49);
-    border-radius: 35px;
-    background: rgb(98, 185, 95);
+    border: 3px solid rgb(75, 67, 67);
+    border-radius: 10px;
+    background-color: rgb(71, 57, 57);
+    color:azure;
+}
+
+@media only screen and (min-width:900px){
+    body{
+        justify-content: space-between;
+    }
+    header{
+        flex-direction: row;
+    }
+    header div{
+        width: 50%;
+    }
+    .head{
+        text-align: left;
+        font: small-caps bolder 50px Roboto;
+    }
+    .msg{
+        text-align: right;
+        font: 30px Roboto;
+        padding-right: 20px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
     
+    .container{
+        flex-direction: row;
+    }
+    .flex-items{
+        width: 30%;
+    }
+    .inp,.btn,.fields{
+        width: 20vw;
+    }
 }
-
-.inp{
-    outline: none;
-    text-align: center;
-    display: block;
-    margin: 10px auto;
-    min-width: 12vw;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font: bold 15px 'Roboto', sans-serif;
-    border: 3px solid rgb(141, 126, 126);
-    border-radius: 35px;
-    background: rgba(255, 255, 255, 0.5);
-}
-
-.btn{
-    outline: none;
-    user-select: none;
-    min-width: 12vw;
-    font: bold 20px 'Roboto', sans-serif;
-    padding: 5px;
-    border: 3px solid rgb(68, 63, 63);
-    border-radius: 35px;
-    background: rgba(14, 87, 223, 0.6);
-    -webkit-backdrop-filter: blur(10px);
-    -ms-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    color:blanchedalmond;
-    transition: 0.5s;
-}
-
-.btn:hover{
-    text-decoration: underline;
-    letter-spacing: 5px;
-}
-
-@media only screen and (min-width:700px){
-    
-}
-
- */
