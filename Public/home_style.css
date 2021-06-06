@@ -10,8 +10,6 @@ body{
     display:flex;           /* woaahhhhhhhhhh */
     flex-direction:column;
     justify-content: space-between;
-
-    font-family: Roboto;
     background-color: rgb(33, 34, 36);
     height: auto; /* required to allow content to expand vertically without overflow */
     width: auto; 
@@ -97,10 +95,10 @@ footer{
     outline: none;
     text-align: center;
     margin: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     width: 50vw;
-
+    font-size: 20px;
     border: 3px solid rgb(75, 67, 67);
     border-radius: 10px;
 }
@@ -109,10 +107,10 @@ footer{
     cursor: pointer;
     width: 50vw;
     user-select: none;
-    padding:10px;
+    padding:5px;
 
     color:azure;
-    font-size: 15px;
+    font-size: 20px;
     border: 3px solid rgb(75, 67, 67);
     border-radius: 10px;
     transition: 0.4s;
@@ -131,7 +129,7 @@ footer{
     text-align: center;
     width: 50vw;
     padding: 5px;
-    font: 20px 'Roboto', sans-serif;
+    font-size: 20px;
     border: 3px solid rgb(75, 67, 67);
     border-radius: 10px;
     background-color: rgb(71, 57, 57);
@@ -139,9 +137,6 @@ footer{
 }
 
 @media only screen and (min-width:900px){
-    body{
-        justify-content: space-between;
-    }
     header{
         flex-direction: row;
     }

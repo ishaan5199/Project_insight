@@ -66,9 +66,11 @@ footer{
 .casing{
     text-align: center;
 }
-form h3{
+.choose{
     color:rgb(117, 124, 131);
     font: bold 25px Roboto;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 .btn{
     outline: none;
@@ -97,15 +99,21 @@ form h3{
     color: bisque;
     font: bold 25px Roboto;
 }
-form.loginForm{
-    padding: 30px;
+.loginForm{
+    min-height: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 .inp{
     background-color: rgb(43, 37, 37);
     color: bisque;
     outline: none;
     text-align: center;
-    margin: 10px;
+    margin: 5px;
     padding-top: 10px;
     padding-bottom: 10px;
     width: 50vw;
@@ -119,7 +127,7 @@ form.loginForm{
 }
 #icon{
     right: 18px;
-    top: 0px;
+    top: 15px;
     position: absolute;
     cursor: pointer;
     font-size: 20px;
@@ -127,4 +135,27 @@ form.loginForm{
 .user{
     margin-top: 10px;
     width: 50vw;
+}
+
+@media only screen and (min-width:800px){
+    .head{
+        font: small-caps bolder 50px Roboto;
+    }
+    .choose{
+        font-size: 35px;
+    }
+    .btn{
+        width: 30vw;
+    }
+    .inp{
+        width: 30vw;
+        font-size: 15px;
+    }
+    .cu{
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+
+        
+    }
 }
