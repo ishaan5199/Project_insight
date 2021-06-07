@@ -120,8 +120,12 @@ footer{
 
     border: 3px solid rgb(75, 67, 67);
     border-radius: 10px;
-}
+    transition: 0.2s;
 
+}
+.inp:hover{
+    border: 3px solid bisque;
+}
 .pass{
     position: relative;
 }
