@@ -16,12 +16,14 @@ function load(){            // User creation
 }
 
 // For icon change (Create User and Login Page)
-if(window.location.pathname==="/create_user" || window.location.pathname==="/login"){
+if(window.location.pathname==="/create_user" || window.location.pathname==="/login" || window.location.pathname==="/welcome" || window.location.pathname==="/new_user"){
     window.onload = ()=>{
         var icon = document.getElementById("icon");
         /* console.log(icon);
         console.log(icon.className); */
         icon.addEventListener("click",(e)=>{
+
+
                 if(icon.className==="fa fa-eye-slash"){
                     document.getElementById("sec").setAttribute("type","text");
                     icon.className="fa fa-eye";
@@ -34,3 +36,4 @@ if(window.location.pathname==="/create_user" || window.location.pathname==="/log
         })
     }
 } 
+

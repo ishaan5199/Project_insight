@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const { start } = require("repl");
 
 const PORT = process.env.PORT || 8000;
+var current_user;
 
 // mongoose
 mongoose.connect(process.env.MONGO_URI,{useNewUrlParser: true, useUnifiedTopology: true}).catch((e)=>{
@@ -70,7 +71,9 @@ app.post("/welcome",(req,res)=>{
             return res.status(200).render("login.pug",{message:"Invalid Login Credentials"});
         }
         res.status(200).render("home.pug",{greet:`Welcome ${contacts.name}`});
+        current_user = contacts;
     })
+    
 });
 
 
@@ -81,13 +84,21 @@ app.post("/welcome",(req,res)=>{
 
 /* User Creation */
 app.post("/new_user",(req,res)=>{
-    // console.log(req.body);
-    let Data = new Contact(req.body);
-    Data.save().then(()=>{
-        console.log(req.body);
-        res.status(200).render("home.pug",{greet:`Welcome ${Data.name}`});
-    }).catch((e)=>{
-        res.status(404).send(e.message);
+
+    Contact.findOne(req.body,(err, contacts)=>{
+        if(!contacts){
+            let Data = new Contact(req.body);
+            Data.save().then(()=>{
+                console.log(req.body);
+                res.status(200).render("home.pug",{greet:`Welcome ${Data.name}`});
+            }).catch((e)=>{
+                res.status(404).send(e.message);
+            });
+        }
+        else{
+            return res.status(200).render("create_user.pug",{message:"User with same details already exists"});
+        }
+        current_user = contacts;
     });
     
 });
@@ -112,18 +123,42 @@ app.get("/search",(req,res)=>{
         // console.log(details);
         res.status(200).render("search_result.pug",{tf:true,title:"Global Search",heading:"Search Successful",value:details});
     })
+    
 });
 
 /* Info Updation */
 app.post("/update",(req,res)=>{
-    console.log(req.body);
-    res.status(200).send("Under Construction !!");
-    //Contact.updateOne({name:``})
+    
+    Contact.findOneAndUpdate({phone: current_user.phone},req.body,{new: true, useFindAndModify: false}, function(err,contacts){
+
+        if(err){
+            res.write(`Updation Failed : ${err}`);
+            res.end();
+            return;
+        }
+
+        current_user = contacts;
+        res.status(200).render("home.pug",{greet:`Welcome ${contacts.name}`,message:`Field Updated`});
+        
+    });
+
 });
 
 /* User Deletion */
 app.get("/delete",(req,res)=>{
-    res.status(200).send("Under Construction !!");
+    
+    Contact.findOneAndDelete({phone: current_user.phone}, function(err,contacts){
+
+        if(err){
+            res.write(`Deletion Failed : ${err}`);
+            res.end();
+            return;
+        }
+
+        current_user = contacts;
+        res.status(200).render("welcome.pug");
+    });
+
 });
 
 /* PORT Listen */

@@ -1,7 +1,7 @@
 extends base.pug
 
 block content 
-    div.container.cu
+    div.container(style = " margin-top: 0px; margin-bottom: 0px;")
         div(class = "buttons")
                 div.intro Create User Account
                 form(action="/new_user" method = "post" class="loginForm")
@@ -18,4 +18,5 @@ block content
                     input(type="email" class="inp" name="email" placeholder="Enter Your E-Mail Address")
                     br
                     button(class = "btn user" style = "padding:5px") 
-                        | Submit                     
+                        | Submit          
+                    label(style = "display:block; font: bolder 20px Roboto; letter-spacing:5px; color:white; margin-top: 10px; margin-bottom: 10px")= message               

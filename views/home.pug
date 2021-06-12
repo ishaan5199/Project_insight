@@ -6,7 +6,8 @@ html
             include ../Public/home_style.css
         script 
             include ../Public/index.js 
-        meta(name="viewport" content="width=device-width, initial-scale=1.0")            
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")  
+        <link rel="icon" href="../Public/database.png">          
     body 
         header
             div.head Public Database
@@ -36,10 +37,11 @@ html
                     input(type="text" class="inp selectedF" name="select" placeholder="Input Area")  
                     button(class = "btn") 
                         | Update     
+                    label(style = "display:block; font: bolder 10px Roboto; letter-spacing:5px; color:white")= message                              
             div(class = "flex-items three")
                 label.intro Delete Your Account
-                form(action="/delete" method = "get" class="loginForm")
-                    button(class = "btn" ) 
+                form(action="/delete" method = "get" class="loginForm" onsubmit="return confirm('Do you really want to delete your account?');")
+                    button(class = "btn"  ) 
                         | Delete
         footer
             h3 The Database Company&reg;
