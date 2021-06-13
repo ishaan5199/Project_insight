@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const router = express.Router();
 const dotenv = require("dotenv");
 dotenv.config({path:"./config.env"});
 const path = require("path");
@@ -34,34 +35,34 @@ const people = mongoose.Schema({
 const Contact = mongoose.model("contact",people);
 
 // Express related stuff
-app.use("/public",express.static("./Public"));
-app.use(express.urlencoded({extended:false}));
+router.use("/public",express.static("./Public"));
+router.use(express.urlencoded({extended:false}));
 
 // Pug specific stuff
-app.set("view engine","pug");
-app.set("views",path.join(__dirname,"views"));
+router.set("view engine","pug");
+router.set("views",path.join(__dirname,"views"));
 
 // ENDPOINTS
 
 /* Home Page */
-app.get("/",(req,res)=>{
+router.get("/",(req,res)=>{
     res.status(200).render("welcome.pug");
 });
 
-app.get("/create_user",(req,res)=>{
+router.get("/create_user",(req,res)=>{
     res.status(200).render("create_user.pug");
 }); 
 
-app.get("/login",(req,res)=>{
+router.get("/login",(req,res)=>{
     res.status(200).render("login.pug");
 });
 
-app.get("/home",(req,res)=>{                        //check this
+router.get("/home",(req,res)=>{                        //check this
     res.status(200).render("home.pug");
 });
 
 /* Logging in */
-app.post("/welcome",(req,res)=>{
+router.post("/welcome",(req,res)=>{
     Contact.findOne(req.body,(err, contacts)=>{
         if(err){
             return res.status(400).send("Login Failed!");
@@ -83,7 +84,7 @@ app.post("/welcome",(req,res)=>{
 
 
 /* User Creation */
-app.post("/new_user",(req,res)=>{
+router.post("/new_user",(req,res)=>{
 
     Contact.findOne(req.body,(err, contacts)=>{
         if(!contacts){
@@ -104,7 +105,7 @@ app.post("/new_user",(req,res)=>{
 });
 
 /* Info retrieval */
-app.get("/search",(req,res)=>{
+router.get("/search",(req,res)=>{
     let request = req.query;
     // console.log(request);
     let KEY = Object.keys(request)[0];
@@ -127,7 +128,7 @@ app.get("/search",(req,res)=>{
 });
 
 /* Info Updation */
-app.post("/update",(req,res)=>{
+router.post("/update",(req,res)=>{
     
     Contact.findOneAndUpdate({phone: current_user.phone},req.body,{new: true, useFindAndModify: false}, function(err,contacts){
 
@@ -145,7 +146,7 @@ app.post("/update",(req,res)=>{
 });
 
 /* User Deletion */
-app.post("/delete",(req,res)=>{
+router.post("/delete",(req,res)=>{
     
     Contact.findOneAndDelete({phone: current_user.phone}, function(err,contacts){
 
@@ -162,6 +163,6 @@ app.post("/delete",(req,res)=>{
 });
 
 /* PORT Listen */
-app.listen(PORT,()=>{
+router.listen(PORT,()=>{
     console.log(`Server listening to port ${PORT}...`);
 });
