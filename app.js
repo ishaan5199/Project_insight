@@ -56,52 +56,51 @@ app.get("/login",(req,res)=>{
     res.status(200).render("login.pug");
 });
 
-app.get("/home",(req,res)=>{                        //check this
-    res.status(200).render("home.pug");
-});
 
 /* Logging in */
 app.post("/welcome",(req,res)=>{
-    Contact.findOne(req.body,(err, contacts)=>{
-        if(err){
-            return res.status(400).send("Login Failed!");
-        }
-        // console.log(contacts);
-        if(!contacts){
-            return res.status(200).render("login.pug",{message:"Invalid Login Credentials"});
-        }
-        res.status(200).render("home.pug",{greet:`Welcome ${contacts.name}`});
-        current_user = contacts;
-    })
+
+    if(Object.keys(req.body).length == 2){
+        Contact.findOne(req.body,(err, contacts)=>{
+            if(err){
+                return res.status(400).send(`Login Failed! : ${err}`);
+            }
+            // console.log(contacts);
+            if(!contacts){
+                return res.status(200).render("login.pug",{message:"Invalid Login Credentials"});
+            }
+            res.status(200).render("home.pug",{greet:`Welcome ${contacts.name}`});
+            current_user = contacts;
+        })
+    }
+    else{
+        Contact.findOne(req.body,(err, contacts)=>{
+            if(err){
+                res.write(`The error : ${err}`);
+                res.end();
+                return;
+            }
+            if(!contacts){
+                let Data = new Contact(req.body);
+                Data.save().then(()=>{
+                    console.log(req.body);
+                    res.status(200).render("login.pug");
+                }).catch((e)=>{
+                    res.status(404).send(e.message);
+                });
+            }
+            else{
+                return res.status(200).render("create_user.pug",{message:"User with same details already exists"});
+            }
+            current_user = contacts;
+        });
+    }
     
 });
 
 
 
 /* CRUD ops */
-
-
-
-/* User Creation */
-app.post("/new_user",(req,res)=>{
-
-    Contact.findOne(req.body,(err, contacts)=>{
-        if(!contacts){
-            let Data = new Contact(req.body);
-            Data.save().then(()=>{
-                console.log(req.body);
-                res.status(200).render("home.pug",{greet:`Welcome ${Data.name}`});
-            }).catch((e)=>{
-                res.status(404).send(e.message);
-            });
-        }
-        else{
-            return res.status(200).render("create_user.pug",{message:"User with same details already exists"});
-        }
-        current_user = contacts;
-    });
-    
-});
 
 /* Info retrieval */
 app.get("/search",(req,res)=>{
