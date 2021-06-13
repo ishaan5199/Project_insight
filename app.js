@@ -145,7 +145,7 @@ app.post("/update",(req,res)=>{
 });
 
 /* User Deletion */
-app.get("/delete",(req,res)=>{
+app.post("/delete",(req,res)=>{
     
     Contact.findOneAndDelete({phone: current_user.phone}, function(err,contacts){
 

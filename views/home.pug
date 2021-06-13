@@ -40,7 +40,7 @@ html
                     label(style = "display:block; font: bolder 10px Roboto; letter-spacing:5px; color:white")= message                              
             div(class = "flex-items three")
                 label.intro Delete Your Account
-                form(action="/delete" method = "get" class="loginForm" onsubmit="return confirm('Do you really want to delete your account?');")
+                form(action="/delete" method = "post" class="loginForm" onsubmit="return confirm('Do you really want to delete your account?');")
                     button(class = "btn"  ) 
                         | Delete
         footer
