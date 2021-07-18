@@ -8,7 +8,7 @@ function OPT(op){
 function load(){            // User creation
     var timer=3;
     setTimeout(()=>{
-        window.location.href="/home";
+        window.close();
     },4000);
     setInterval(()=>{
         document.getElementById("counter").innerHTML=`Redirecting to previous page in ${timer--}`
