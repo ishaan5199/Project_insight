@@ -12,10 +12,10 @@
   "dependencies": {
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
-    "mongoose": "^5.12.9",
+    "mongoose": "^5.13.3",
     "pug": "^3.0.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.12"
   }
 }
