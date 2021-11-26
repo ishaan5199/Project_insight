@@ -4,7 +4,6 @@ const dotenv = require("dotenv");
 dotenv.config({path:"./config.env"});
 const path = require("path");
 const mongoose = require("mongoose"); 
-const { start } = require("repl");
 
 const PORT = process.env.PORT || 8000;
 var current_user;
@@ -26,7 +25,6 @@ db.once('open', function() {
 const people = mongoose.Schema({
     name:String,
     phone:String,
-    email:String,
     address:String,
     pass:String
 });
