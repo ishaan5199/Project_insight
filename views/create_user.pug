@@ -5,17 +5,15 @@ block content
         div(class = "buttons")
                 div.intro Create User Account
                 form(action="/welcome" method = "post" class="loginForm")
-                    input(type="text" class="inp" name="name" placeholder="Enter Your Name" required="required")
+                    input(type="text" class="inp" name="name" placeholder="Name" required="required")
                     br
-                    input(type="phone" class="inp" name="phone" placeholder="Enter Your Mobile Number" required="required")
+                    input(type="phone" class="inp" name="phone" placeholder="Mobile Number" required="required")
                     br
-                    input(type="text" class="inp" name="address" placeholder="Enter Your Address" required="required")
+                    input(type="text" class="inp" name="address" placeholder="Address" required="required")
                     br
                     label.pass
-                        input(type="password" class="inp" id = "sec" name="pass" placeholder="Enter Your Password" required="required")
+                        input(type="password" class="inp" id = "sec" name="pass" placeholder="Password" required="required")
                         <i id="icon" class="fa fa-eye-slash""></i>
-                    br
-                    input(type="email" class="inp" name="email" placeholder="Enter Your E-Mail Address")
                     br
                     button(class = "btn user" style = "padding:5px") 
                         | Submit          
